@@ -1,4 +1,6 @@
 NexusTest::Application.routes.draw do
+  resources :courses
+
   get "course_search/search"
 
   root :to => 'course_search#search'

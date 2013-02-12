@@ -3,7 +3,8 @@ NexusTest::Application.routes.draw do
 
   get "course_search/search"
 
-  root :to => 'course_search#search'
+	root to: 'xcri_cap_lookup#index'
+
 	# The priority is based upon order of creation:
   # first created -> highest priority.
 

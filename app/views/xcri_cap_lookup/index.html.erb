@@ -1,0 +1,21 @@
+<h1>Xcri Cap: Course Id Lookup</h1>
+
+<%= form_tag root_url, method: :get do %>
+	<p>
+	  <%= text_field_tag :xcri_cap, params[:xcri_cap] %>
+	  <%= submit_tag "Lookup", name: nil %>
+	</p>
+<% end %>
+
+<% if @xcri_cap %>
+	<dl id ="xcri_cap_info">
+		<dt>City:</dt>
+		<dd><%= @xcri_cap.city %></dd>
+		<dt>State:</dt>
+		<dd><%= @xcri_cap.state %></dd>
+		<dt>Area Code:</dt>
+		    <dd><%= @xcri_cap.area_code %></dd>
+				    <dt>Time Zone:</dt>
+						    <dd><%= @xcri_cap.time_zone %></dd>
+	</dl>
+<% end %>

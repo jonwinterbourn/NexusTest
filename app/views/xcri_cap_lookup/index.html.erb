@@ -9,13 +9,32 @@
 
 <% if @xcri_cap %>
 	<dl id ="xcri_cap_info">
-		<dt>City:</dt>
-		<dd><%= @xcri_cap.city %></dd>
-		<dt>State:</dt>
-		<dd><%= @xcri_cap.state %></dd>
-		<dt>Area Code:</dt>
-		    <dd><%= @xcri_cap.area_code %></dd>
-				    <dt>Time Zone:</dt>
-						    <dd><%= @xcri_cap.time_zone %></dd>
+		<h2>Catalog</h2>
+		<dt>Contributor:</dt>
+		<dd><%= @xcri_cap.contributor %></dd>
+		<dt>Description:</dt>
+		<dd><%= @xcri_cap.description %></dd>
+
+		<h2>Provider</h2>
+		<dt>Title:</dt>
+		<dd><%= @xcri_cap.provider_title %></dd>
+		<dt>Description:</dt>
+		<dd><%= @xcri_cap.provider_description %></dd>
+		<dt>Url:</dt>
+    <dd><%= @xcri_cap.provider_url %></dd>
+		<dt>Identifier:</dt>
+    <dd><%= @xcri_cap.provider_identifier %></dd>
+
+		<h2>Course</h2>
+		<dt>Title:</dt>
+		<dd><%= @xcri_cap.course_title %></dd>
+		<dt>Description:</dt>
+		<dd><%= @xcri_cap.course_desc %></dd>
+		<dt>Subject:</dt>
+		<dd><%= @xcri_cap.course_subject %></dd>
+		<dt>Identifier:</dt>
+		<dd><%= @xcri_cap.course_identifier %></dd>
+		<dt>URL:</dt>
+		<dd><%= @xcri_cap.course_url %></dd>
 	</dl>
 <% end %>

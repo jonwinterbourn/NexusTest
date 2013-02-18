@@ -1,6 +1,6 @@
 require 'nokogiri'
 class XcriCap
-	attr_reader :contributor, :description, :provider_description, :provider_url, :provider_identifier, :provider_title, :course_title, :course_desc, :course_subject, :course_identifier, :course_type, :course_url, :course_abstract, :course_application_procedure
+	attr_reader :message, :contributor, :description, :provider_description, :provider_url, :provider_identifier, :provider_title, :course_title, :course_desc, :course_subject, :course_identifier, :course_type, :course_url, :course_abstract, :course_application_procedure
 	def initialize(id)
 
 		client = Savon::Client.new(wsdl: "http://www.hefty.ws/services/GetCourses?wsdl")
@@ -23,9 +23,18 @@ class XcriCap
 				@provider_title = data[:provider][:title]
 
 				#courses.each do |r|
-					unless courses.nil?
+					if courses.empty?
+						@message = "No results returned."	
+					else
 						if courses.count > 1
 							@course_title = courses[0].to_hash[:title]
+							@course_type = courses[0].to_hash[:type]
+              @course_identifier = courses[0].to_hash[:identifier]
+              @course_subject = courses[0].to_hash[:subject]
+              @course_desc = courses[0].to_hash[:description]
+              @course_url = courses[0].to_hash[:url]
+              @course_abstract = courses[0].to_hash[:abstract]
+              @course_application_procedure = courses[0].to_hash[:applicationProcedure]
 						else
 							@course_title = data[:provider][:course][:title]
 							@course_type = data[:provider][:course][:type]
@@ -37,13 +46,16 @@ class XcriCap
 							@course_application_procedure = data[:provider][:course][:applicationProcedure]
 						end
 					end
-					
+			end
+#		else
+#			@message = "No results returned"
+		end
 					#doc.css('course').first do |co|
 					#	@coursedesc = co.to_hash[:description]
 					#end
-			end
+#			end
 #	    end
-    end
+#    end
 
 	end
 end

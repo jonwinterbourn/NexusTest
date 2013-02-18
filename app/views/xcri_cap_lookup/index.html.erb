@@ -1,5 +1,4 @@
 <h1>Xcri Cap: Course Id Lookup</h1>
-
 <%= form_tag root_url, method: :get do %>
 	<p>
 	  <%= text_field_tag :xcri_cap, params[:xcri_cap] %>
@@ -8,6 +7,7 @@
 <% end %>
 
 <% if @xcri_cap %>
+	 <%= @xcri_cap.message %>
 	<dl id ="xcri_cap_info">
 		<h2>Catalog</h2>
 		<dt>Contributor:</dt>

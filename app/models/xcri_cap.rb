@@ -27,6 +27,7 @@ class XcriCap
 						@message = "No results returned."	
 					else
 						if courses.count > 1
+							@message = "First of " + courses.count.to_s + " results."
 							@course_title = courses[0].to_hash[:title]
 							@course_type = courses[0].to_hash[:type]
               @course_identifier = courses[0].to_hash[:identifier]
@@ -36,6 +37,7 @@ class XcriCap
               @course_abstract = courses[0].to_hash[:abstract]
               @course_application_procedure = courses[0].to_hash[:applicationProcedure]
 						else
+							@message = "1 result."
 							@course_title = data[:provider][:course][:title]
 							@course_type = data[:provider][:course][:type]
 							@course_identifier = data[:provider][:course][:identifier]
